@@ -4,8 +4,6 @@ from streamlit_folium import st_folium
 import csv
 from google.cloud import firestore
 import json
-from transformers import pipeline
-import PyPDF2
 
 db = firestore.Client.from_service_account_json("firestore-key.json")
 doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
@@ -82,33 +80,3 @@ def pull_and_save_firestore_collection(collection_name, output_file):
 collection_name = 'StreamData'  # Replace 'your_collection_name' with the name of your Firestore collection
 output_file = 'output.json'  # Specify the desired output file name
 pull_and_save_firestore_collection(collection_name, output_file)
-
-
-
-
-
-
-
-pipe = pipeline("question-answering", model="deepset/roberta-base-squad2")
-
-# Provide the PDF content manually as the context
-# Open the PDF file
-with open("a1974-02.pdf", "rb") as file:
-    # Create a PdfReader object
-    reader = PyPDF2.PdfReader(file)
-    
-    # Extract text from each page
-    pdf_text = ""
-    for page_num in range(len(reader.pages)):
-        page = reader.pages[page_num]
-        pdf_text += page.extract_text()
-
-# Define a question to ask
-question = st.sidebar.text_input("Enter your question","Hello")
-
-# Use the pipeline to answer the question
-result = pipe(question=question, context=pdf_text)
-
-# Display the answer in the sidebar
-st.sidebar.header("Answer")
-st.sidebar.write(result["answer"])
