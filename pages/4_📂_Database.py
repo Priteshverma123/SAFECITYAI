@@ -7,6 +7,7 @@ st.set_page_config(
     page_icon="👮",
     layout="wide"
 )
+st.sidebar.success("Select a page above")
 # Function to create a database and table
 def create_database():
     conn = sqlite3.connect('crimedb.db')

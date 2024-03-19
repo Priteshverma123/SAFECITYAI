@@ -11,6 +11,7 @@ st.set_page_config(
     page_icon="👮",
     layout="wide"
 )
+st.sidebar.success("Select a page above")
 
 
 def write_intro():

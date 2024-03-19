@@ -15,7 +15,6 @@ st.set_page_config(
 
 st.title("SAFECITY-AI: LIVE INCIDENT MAP")
 st.sidebar.success("Select a page above")
-st.sidebar.success("This is a demo")
 video_file = st.file_uploader("Upload a video file", type="mp4")
 video_path = None
 # Display the uploaded video file
