@@ -10,8 +10,8 @@ def generate_random_coordinates(center, radius, num_points):
     random_coords = []
     for _ in range(num_points):
         # Generate random offsets within the radius
-        dx = random.uniform(-50, 50) * (radius / 1)  # Adjust the scale as needed
-        dy = random.uniform(-50, 50) * (radius / 1)  # Adjust the scale as needed
+        dx = random.uniform(-50000, 50000) * (radius / 1)  # Adjust the scale as needed
+        dy = random.uniform(-50000, 50000) * (radius / 1)  # Adjust the scale as needed
         
         # Calculate new coordinates with offset
         new_lat = center[0] + (180 / (2 * 6378137)) * (dy / (10 ** 5))
@@ -62,9 +62,9 @@ if selected_city == 'Vijaywada':
     center_location = [16.50817365159962, 80.64573691637011]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[16.50817365159962, 80.64573691637011],zoom_start=15)
@@ -151,9 +151,9 @@ elif selected_city == 'Vishakpatnam':
     center_location = [17.74973014010475, 83.21975317179863]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[17.74973014010475, 83.21975317179863],zoom_start=15)
@@ -241,9 +241,9 @@ elif selected_city == 'Guntur':
     center_location = [16.314732507263027, 80.45106638916272]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[16.314732507263027, 80.45106638916272],zoom_start=15)
@@ -328,9 +328,9 @@ elif selected_city == 'Eluru':
     center_location = [16.712723796848618, 81.08123305304612]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[16.712723796848618, 81.08123305304612],zoom_start=15)
@@ -417,9 +417,9 @@ elif selected_city == 'Amravati':
     center_location = [16.520980582623306, 80.52472226380587]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[16.614334401505293, 80.5372372562447],zoom_start=13)
@@ -506,9 +506,9 @@ elif selected_city == 'Rajamahendravaram':
     center_location = [17.01327366887392, 81.76776322695733]  # andhra pradesh
     # # Set the radius in degrees (adjust as needed)
     radius_degrees = 10000
-    num_markers = 50
+    num_markers = 15
     db = firestore.Client.from_service_account_json("firestore-key.json")
-    doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+    doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
     doc = doc_ref.get()
     random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
     m = folium.Map(location=[17.01327366887392, 81.76776322695733],zoom_start=15)

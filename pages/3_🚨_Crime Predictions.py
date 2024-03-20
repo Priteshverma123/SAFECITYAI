@@ -15,11 +15,13 @@ st.sidebar.success("Select a page above")
 # Hide the "Made with Streamlit" text
 hide_streamlit_style = """
             <style>
+            
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 
 def write_intro():
@@ -193,8 +195,8 @@ write_process_title()
 alt_chart = (
     alt.Chart(crime_df, title="Most Recent Crime Count by Incident Type")
     .mark_bar()
-    .encode(x=alt.Y('count(*):Q', title='Numer of Incidents'),
-            y=alt.X('primary_type', title="Incident Type").sort('-x'),
+    .encode(x=alt.X('count(*):Q', title='Number of Incidents'),
+            y=alt.Y('primary_type', title="Incident Type").sort('-x'),
             color=alt.condition(
                 alt.datum.primary_type == tracked_val,
                 alt.value('orange'),
@@ -361,15 +363,4 @@ text = alt.Chart(incident_count.query("arrest == 'Arrest'")).mark_text(
             label=alt.datum.count + " arrests"
             )
 
-st.altair_chart(alt_chart + text, use_container_width=False)    
-
-
-
-
-
-
-
-
-
-
-
+st.altair_chart(alt_chart + text, use_container_width=False)

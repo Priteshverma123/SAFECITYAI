@@ -79,7 +79,7 @@ icon = folium.features.CustomIcon(icon_image=icon_path ,icon_size=(45,45))
 
 
 db = firestore.Client.from_service_account_json("firestore-key.json")
-doc_ref = db.collection("StreamData").document("OkMZ5FcclPYmNmToV4kpjhdKZbx1")
+doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
 doc = doc_ref.get()
 
 
