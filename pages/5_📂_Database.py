@@ -7,6 +7,14 @@ st.set_page_config(
     page_icon="👮",
     layout="wide"
 )
+# Hide the "Made with Streamlit" text
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.sidebar.success("Select a page above")
 # Function to create a database and table
 def create_database():

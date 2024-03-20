@@ -62,6 +62,15 @@ police_stations = [
      {'latitude': 17.02255918809501,  'longitude': 81.80493775866381, 'title': 'DSP Office, East Zone,Rajahmundry'},
      {'latitude': 17.02040999880307,  'longitude': 81.80824664077987, 'title': 'Rajahmundry Rural Police Circle Office'},
      {'latitude': 17.05582714187831,  'longitude': 81.79685241801535, 'title': 'Konthamuru Police Station'},
+     {'latitude': 17.013949250870326,  'longitude':81.76951349003437, 'title': '3 Town Police Station'},
+     {'latitude': 17.02084335522671,  'longitude': 81.80624902583638, 'title': 'Bommuru Police Station '},
+     {'latitude': 17.016575606276003,  'longitude': 81.78942621037565, 'title': 'Prakasam Nagar Police Station'},
+     {'latitude': 17.055638290025556,  'longitude': 81.79629266566575, 'title': 'Kadiam Police Station'},
+     {'latitude': 17.007383201196564,  'longitude':81.7722600721504, 'title': 'ONE TOWN POLICE STATION'},
+     {'latitude': 16.997862020359143,  'longitude': 81.77603662255996, 'title': 'Two Town Police Station'},
+     {'latitude': 16.53020275982707,  'longitude': 80.63392900013139, 'title': 'SN Puram Police Station'},
+
+
     # Add more data entries as needed
 ]
 
@@ -98,21 +107,21 @@ st.set_page_config(
     layout="wide"
 )
 st.sidebar.success("Select a page above")
-st.title("SAFECITY-AI:LIVE INCIDENT MAP")
+# st.title("SAFECITY-AI")
 # Set the center location
-center_location = [19.1813801, 72.8475999]  # London coordinates
-# Set the radius in degrees (adjust as needed)
-radius_degrees = 1000000
-num_markers = 16
+# center_location = [15.03641, 78.95384]  # andhra pradesh
+# # Set the radius in degrees (adjust as needed)
+# radius_degrees = 1000000
+# num_markers = 50
 
 
-random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
+# random_coordinates = generate_random_coordinates(center_location, radius_degrees, num_markers)
 # random_coordinates = [
 #     {'latitude': 19.050413800011277, 'longitude': 72.87844360004112, 'title': 'Marker 1'},
 #     {'latitude': 19.050413800037386, 'longitude': 72.87844359998012, 'title': 'Marker 2'},
 #     {'latitude': 19.05041380002946, 'longitude': 72.87844360000626, 'title': 'Marker 3'},]
 
-m = folium.Map(location=[19.17174137257669, 72.97784619920482],zoom_start=15)
+m = folium.Map(location=[16.554216925462832, 80.65185440964599],zoom_start=16)
 
 
 # location=float(doc.get("latitude")),float(doc.get("longitude"))
@@ -136,13 +145,13 @@ for key, value in data.items():
         if latitude is not None and longitude is not None:
             folium.Marker([latitude, longitude],tooltip=title,popup="<b>Join Stream<b><br><a href='https://sharib-livestream-1523.app.100ms.live/streaming/meeting/ypk-nxpz-zru'>join</a>").add_to(m)
 # call to render Folium map in Streamlit
-for coord in random_coordinates:
-    latitude = coord['latitude']
-    longitude = coord['longitude']
-    title = coord['title']
-    icon_path = "assets\police.png"
-    icon = folium.features.CustomIcon(icon_image=icon_path ,icon_size=(45,45))
-    folium.Marker(location=[latitude, longitude],tooltip=title,icon=icon).add_to(m)
+# for coord in random_coordinates:
+#     latitude = coord['latitude']
+#     longitude = coord['longitude']
+#     title = coord['title']
+#     icon_path = "assets\police.png"
+#     icon = folium.features.CustomIcon(icon_image=icon_path ,icon_size=(45,45))
+#     folium.Marker(location=[latitude, longitude],tooltip=title,icon=icon).add_to(m)
 
 for coord in police_stations:
     latitude = coord['latitude']
@@ -188,6 +197,17 @@ def pull_and_save_firestore_collection(collection_name, output_file):
 collection_name = 'StreamData'  # Replace 'your_collection_name' with the name of your Firestore collection
 output_file = 'output.json'  # Specify the desired output file name
 pull_and_save_firestore_collection(collection_name, output_file)
+
+# Hide the "Made with Streamlit" text
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
 
 
 

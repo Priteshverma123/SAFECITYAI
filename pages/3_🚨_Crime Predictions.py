@@ -12,6 +12,14 @@ st.set_page_config(
     layout="wide"
 )
 st.sidebar.success("Select a page above")
+# Hide the "Made with Streamlit" text
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 def write_intro():
