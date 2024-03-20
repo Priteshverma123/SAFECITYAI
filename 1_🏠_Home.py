@@ -121,7 +121,7 @@ st.sidebar.success("Select a page above")
 #     {'latitude': 19.050413800037386, 'longitude': 72.87844359998012, 'title': 'Marker 2'},
 #     {'latitude': 19.05041380002946, 'longitude': 72.87844360000626, 'title': 'Marker 3'},]
 
-m = folium.Map(location=[16.554216925462832, 80.65185440964599],zoom_start=16)
+m = folium.Map(location=[16.554216925462832, 80.65185440964599],zoom_start=17)
 
 
 # location=float(doc.get("latitude")),float(doc.get("longitude"))
