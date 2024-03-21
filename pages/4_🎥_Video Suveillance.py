@@ -134,7 +134,8 @@ st.sidebar.success("Select a page above")
 video_files = st.file_uploader("Upload video files", accept_multiple_files=True)
 
 # Instantiate the pipeline for video classification
-pipe = pipeline("video-classification", model="shazab/videomae-base-finetuned-ucf_crime2")
+###############################################shazab/videomae-base-finetuned-ucf_crime2
+pipe = pipeline("video-classification", model="rahulbarua/videomae-base-finetuned-ucf_crime")
 
 # Store results for each video
 all_results = []

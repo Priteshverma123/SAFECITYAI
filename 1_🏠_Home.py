@@ -81,8 +81,27 @@ icon = folium.features.CustomIcon(icon_image=icon_path ,icon_size=(45,45))
 db = firestore.Client.from_service_account_json("firestore-key.json")
 doc_ref = db.collection("StreamData").document("pw9VDwUUQseUSKADAh9UHCNmN152")
 doc = doc_ref.get()
+doc_reff = db.collection("Wallet").document("pw9VDwUUQseUSKADAh9UHCNmN152")
+docc = doc_ref.get()
 
-
+user_id = "pw9VDwUUQseUSKADAh9UHCNmN152"  # This could be a text input if needed
+bonus = 40  # This could be a number input if needed
+# Function to update amount
+def update_amount(user_id, bonus):
+    # Retrieve current amount
+    docc = doc_reff.get()
+    if docc.exists:
+        data = docc.to_dict()
+        current_amount = data.get(user_id, {}).get("Amount", 0)
+        
+        # Increase amount with bonus
+        new_amount = current_amount + bonus
+        
+        # Update database
+        doc_reff.update({"Amount": new_amount})
+        st.success("Amount updated successfully!")
+    else:
+        st.error("Document not found!")
 
 datafile="assets/data.csv"
 
@@ -207,6 +226,10 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+# update_amount("pw9VDwUUQseUSKADAh9UHCNmN152",40)
+# Button to update amount
+if st.button("Update Amount"):
+    update_amount(user_id, bonus)
 
 
 
